@@ -1,13 +1,23 @@
+:root {
+  --bg-light: rgba(245, 255, 250, 0.925);
+  --bg-light-from: rgba(245, 255, 250, 1);
+  --bg-dark: rgba(26, 26, 26, 0.925);
+  --bg-dark-from: rgba(26, 26, 26, 1);
+  --color-light: #213547;
+  --color-dark: #f9f9f9;
+  --link-color: #646cff;
+  --link-hover: #535bf2;
+  --link-hover-light: #747bff;
+  --button-bg-dark: #1a1a1a;
+  --button-bg-light: #f9f9f9;
+}
+
 html {
   font-family: monospace, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background: url('assets/seattle_skyline.jpeg') center / cover no-repeat;
-
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,11 +26,11 @@ html {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--link-hover);
 }
 
 body {
@@ -32,35 +42,28 @@ body {
 }
 
 body:not(.dark) {
-  background-color: rgba(245, 255, 250, 0.925);
-  animation: backgroundFadeOut 5s;
-}
-
-@keyframes backgroundFadeOutLight {
-  from {
-    background-color: rgba(245, 255, 250, 1);
-  }
-  to {
-    background-color: rgba(245, 255, 250, 0.925);
-  }
-}
-
-@keyframes backgroundFadeOutDark {
-  from {
-    background-color: rgba(26, 26, 26, 1);
-  }
-  to {
-    background-color: rgba(26, 26, 26, 0.925);
-  }
+  background-color: var(--bg-light);
+  color: var(--color-light);
+  animation: backgroundFadeOutLight 5s;
 }
 
 body.dark {
-  color: #f9f9f9;
-  background-color: rgba(26, 26, 26, 0.925);
+  background-color: var(--bg-dark);
+  color: var(--color-dark);
   animation: backgroundFadeOutDark 5s;
 }
 
-h1 {
+@keyframes backgroundFadeOutLight {
+  from { background-color: var(--bg-light-from); }
+  to { background-color: var(--bg-light); }
+}
+
+@keyframes backgroundFadeOutDark {
+  from { background-color: var(--bg-dark-from); }
+  to { background-color: var(--bg-dark); }
+}
+
+:is(h1) {
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -72,26 +75,30 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg-dark);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--link-color);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+button.mode-toggle {
+  background: none;
+  outline: none;
+}
 
-header {
+:is(header, footer) {
   position: fixed;
+}
+header {
   top: 0.5rem;
   left: 0.5rem;
 }
-
 footer {
-  position: fixed;
   bottom: 0;
   right: 2.5rem;
 }
@@ -107,38 +114,30 @@ footer {
   text-align: center;
 }
 
-body.dark span.light {
-  display: none;
-}
+body.dark span.light,
 body:not(.dark) span.dark {
   display: none;
 }
 
-button.mode-toggle {
-  background: none;
-  outline: none;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: var(--color-light);
   }
   a:hover {
-    color: #747bff;
+    color: var(--link-hover-light);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--button-bg-light);
   }
 }
 
+/* Utility classes */
 .is-flex {
   display: flex;
 }
-
 .is-align-items-center {
   align-items: center;
 }
-
 .is-justify-content-space-between {
   justify-content: space-between;
 }

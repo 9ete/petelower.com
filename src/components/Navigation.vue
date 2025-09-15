@@ -1,6 +1,6 @@
 <template>
     <div class="right">
-      <a href="https://kadillacblack.com/">KB</a>
+      <a href="https://kadillacblack.com/">Music</a>
       <span hidden> | </span>
       <a hidden href="https://soundcloud.com/item9andthemadhatters">Item9</a>
       <span> | </span>
