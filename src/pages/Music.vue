@@ -11,7 +11,7 @@ import YouTubeEmbed from '../components/YouTubeEmbed.vue'
       <p>
         <a href="https://kadillacblack.com" target="_blank" rel="noopener">kadillacblack.com</a>
       </p>
-      <YouTubeEmbed video-id="dQw4w9WgXcQ" title="Kadillac Black" />
+      <!-- Add YouTube videos here, e.g.: <YouTubeEmbed video-id="VIDEO_ID" title="Kadillac Black — Song" /> -->
     </section>
 
     <section class="band">
@@ -21,7 +21,7 @@ import YouTubeEmbed from '../components/YouTubeEmbed.vue'
           soundcloud.com/item9andthemadhatters
         </a>
       </p>
-      <YouTubeEmbed video-id="dQw4w9WgXcQ" title="Item9 and the Mad Hatters" />
+      <!-- Add YouTube videos here, e.g.: <YouTubeEmbed video-id="VIDEO_ID" title="Item9 — Song" /> -->
     </section>
   </main>
 </template>
