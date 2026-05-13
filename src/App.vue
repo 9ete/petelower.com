@@ -1,13 +1,11 @@
 <script setup>
-import HomeContent from './components/HomeContent.vue'
-import Footer from './components/Footer.vue'
 import Header from './components/Header.vue'
-import CoinSpinner from './components/CoinSpinner.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
   <Header />
-  <HomeContent />
+  <router-view />
   <Footer />
 </template>
 
