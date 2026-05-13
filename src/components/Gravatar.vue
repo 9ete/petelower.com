@@ -6,21 +6,23 @@
         />
     </div>
 </template>
-<style>
+<style scoped>
 .gravatar {
-    height: 100px;
-    width: 100px;
+    width: 48px;
+    height: 48px;
     margin: 0;
-    border-radius: 100px;
+    border-radius: 50%;
     border: 1px solid whitesmoke;
     box-shadow: 0 0 10px black;
     background: url('https://gravatar.com/avatar/74123bf8d459685cd0f02c1dd90c581d22258608efa9bc71e0a1356be57465db?size=512') center / contain no-repeat;
-    position: relative;
-    left: 1rem;
-    top: 1.25rem;
-
-    img {
-        display: none;
-    }
+}
+.gravatar img {
+    display: none;
+}
+@media (min-width: 640px) {
+  .gravatar {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>
