@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import YouTubeEmbed from '../components/YouTubeEmbed.astro'
+import { bands } from '../data/music'
+---
+
+<Base
+  title="Music — Pete Lower"
+  description="Kadillac Black and Item9 and the Mad Hatters — original music from Seattle."
+>
+  <Header slot="header" />
+  <main class="music">
+    <h1>Music</h1>
+    <p class="intro">Two projects, different eras.</p>
+
+    {bands.map((band) => (
+      <section class="band">
+        <h2>
+          {band.url
+            ? <a href={band.url} target="_blank" rel="noopener">{band.name}</a>
+            : band.name}
+          {band.status === 'former' && <span class="tag">former</span>}
+        </h2>
+        <p>{band.description}</p>
+        {band.socials && band.socials.length > 0 && (
+          <p class="socials">
+            {band.socials.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener">{s.label}</a>
+            ))}
+          </p>
+        )}
+        {band.youtubeIds.map((id) => (
+          <YouTubeEmbed videoId={id} title={`${band.name} video`} />
+        ))}
+      </section>
+    ))}
+  </main>
+  <Footer slot="footer" />
+</Base>
+
+<style>
+.music {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 1rem;
+}
+.music h1 {
+  margin-bottom: 0.5rem;
+}
+.intro {
+  margin: 0 0 2.5rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+.band {
+  margin-bottom: 3rem;
+}
+.band h2 {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.band p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+.socials {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+  border: 1px solid currentColor;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+</style>
