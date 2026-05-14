@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Base
+  title="Pete Lower"
+  description="Musician and web developer based in the Pacific Northwest."
+>
+  <Header slot="header" />
+  <h1 class="loading-dots-after">Hello <em>World</em></h1>
+  <h2 class="sub">I'm Pete</h2>
+  <p class="bio">
+    I make music and build websites out of Seattle. Currently playing in{' '}
+    <a href="https://kadillacblack.com" target="_blank" rel="noopener">Kadillac Black</a>.
+    By day I build PHP applications &mdash; WordPress, Laravel, REST APIs, and whatever else
+    needs to get done.
+  </p>
+  <Footer slot="footer" />
+</Base>
+
+<style>
+.loading-dots-after {
+  width: 380px;
+  text-align: left;
+  margin: 0 auto 0.5rem;
+}
+.loading-dots-after::after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 2400ms infinite;
+  content: '\2026';
+  width: 0px;
+}
+@keyframes ellipsis {
+  to { width: 40px; }
+}
+.sub {
+  text-align: right;
+  margin: 0 0 1.5rem;
+}
+.bio {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+</style>
