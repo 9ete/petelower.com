@@ -2,6 +2,7 @@
     <nav class="site-nav">
       <router-link to="/music">Music</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
+      <router-link to="/contact">Contact</router-link>
       <a href="https://github.com/9ete" target="_blank" rel="noopener">Code</a>
       <a href="https://www.linkedin.com/in/pete-l-39448a42" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
