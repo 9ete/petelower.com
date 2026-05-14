@@ -1,0 +1,11 @@
+---
+import Gravatar from './Gravatar.astro'
+import Navigation from './Navigation.astro'
+import ModeToggle from './ModeToggle.tsx'
+---
+
+<header>
+  <Gravatar />
+  <Navigation />
+  <ModeToggle client:load />
+</header>

@@ -1,0 +1,18 @@
+---
+---
+
+<footer>
+  <div>Email Me: <span id="footer-email"></span></div>
+</footer>
+
+<script>
+  const u = 'pete'
+  const d = 'petelower.com'
+  const el = document.getElementById('footer-email')
+  if (el) {
+    const a = document.createElement('a')
+    a.href = `mailto:${u}@${d}`
+    a.textContent = `${u} [at] ${d}`
+    el.appendChild(a)
+  }
+</script>
