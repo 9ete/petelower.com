@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Base
+  title="Now — Pete Lower"
+  description="What Pete Lower is up to right now."
+>
+  <Header slot="header" />
+  <div class="now">
+    <h1>Now</h1>
+    <p class="updated">Updated May 2026 &mdash; Seattle, WA</p>
+
+    <h2>Music</h2>
+    <p>
+      Playing shows and writing originals with <a href="https://kadillacblack.com" target="_blank" rel="noopener">Kadillac Black</a>.
+      Rock band, Seattle-based. We're working on new material.
+    </p>
+
+    <h2>Work</h2>
+    <p>
+      Building PHP applications for clients &mdash; WordPress, WooCommerce, Laravel, REST APIs.
+      Lots of custom plugin work and backend integrations.
+    </p>
+
+    <h2>Life</h2>
+    <p>
+      Living in Seattle. Enjoying the Pacific Northwest when it's not raining, and sometimes when it is.
+    </p>
+
+    <p class="nownownow">
+      Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a>
+    </p>
+  </div>
+  <Footer slot="footer" />
+</Base>
+
+<style>
+.now {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+.now h1 {
+  margin-bottom: 0.25rem;
+}
+.now h2 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+.now p {
+  margin: 0;
+  line-height: 1.6;
+}
+.updated {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+.nownownow {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+</style>
