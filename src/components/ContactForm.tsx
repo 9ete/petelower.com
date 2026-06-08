@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
+const WEB3FORMS_KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? 'd2736d0f-204e-4ab5-9f1b-c628220dee11'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
