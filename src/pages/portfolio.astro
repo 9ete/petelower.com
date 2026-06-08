@@ -38,10 +38,11 @@ const grouped = (() => {
         <h2>{category}</h2>
         <ul class="cards">
           {items.map((p) => (
+            !p.isHidden && (
             <li class="card">
               {p.thumbnail && <img src={p.thumbnail} alt={p.title} class="thumb" width="400" height="225" loading="lazy" />}
               <h3>
-                {p.url
+                {p.url && !p.disableLink
                   ? <a href={p.url} target="_blank" rel="noopener">{p.title}</a>
                   : p.title}
               </h3>
@@ -51,7 +52,14 @@ const grouped = (() => {
                   <a href={p.repo} target="_blank" rel="noopener">Code</a>
                 </p>
               )}
+              {p.disableLink && p.url && (
+                <p class="links">
+                  {p.url}
+                </p>
+              )}
+              
             </li>
+            )
           ))}
         </ul>
       </section>

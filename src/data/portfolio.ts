@@ -4,8 +4,10 @@ export interface Project {
   title: string
   category: Category
   description: string
+  disableLink?: boolean
   url?: string
   repo?: string
+  isHidden?: boolean
   thumbnail?: string
 }
 
@@ -48,44 +50,62 @@ export const projects: Project[] = [
     repo: 'https://github.com/9ete/simple-like-dislike-plugin',
   },
   {
+    title: 'Available Upon Request',
+    category: 'Client Sites',
+    description: 'Due to the nature of my work with clients, I\'m not able to publicly list all the projects I\'ve worked on. If you\'d like to know more about my experience and see examples of my work, please feel free to reach out via the contact form.',
+  },
+  {
     title: 'VidStore / TN Marketing',
     category: 'Client Sites',
     description: 'Senior Lead Front End Developer and Accessibility Lead on a large-scale Laravel ecommerce platform. Custom Gutenberg blocks, deep performance optimization, and SEO work across a high-traffic product catalog.',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: 'FranklinCovey (via Jhana)',
     category: 'Client Sites',
     description: 'Development, support, and project management on a large-scale WordPress CMS used for blog and content operations. Custom translations pipeline, ongoing feature development, and day-to-day site management.',
     url: 'https://www.franklincovey.com',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: "Reese's Book Club",
     category: 'Client Sites',
     description: 'Full WordPress build for Reese Witherspoon\'s book club brand. Custom Gutenberg block development, performance optimization, and front-end implementation.',
     url: 'https://reesesbookclub.com',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: 'Hello Sunshine',
     category: 'Client Sites',
     description: 'Full WordPress build for Reese Witherspoon\'s media company. Custom Gutenberg development, performance optimization, and full front-end implementation.',
     url: 'https://hello-sunshine.com',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: 'MMDB Solutions',
     category: 'Client Sites',
     description: 'REST API development, custom Gutenberg blocks, and performance optimizations across multiple client projects managed through the MMDB agency.',
     url: 'https://mmdbsolutions.com',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: 'UrSource',
     category: 'Client Sites',
     description: 'Showcase-heavy WooCommerce ecommerce build with a strong focus on SEO, accessibility, performance, and custom Gutenberg blocks.',
+    isHidden: true,
   },
   {
-    title: 'IAFF Local 27 / Rhizome Network',
+    title: 'IAFF Local 27',
     category: 'Client Sites',
     description: 'Custom WordPress builds across the Rhizome multisite network, including the International Association of Fire Fighters Local 27 site. Multisite architecture, custom Gutenberg work, and theme development.',
     url: 'https://iaff27.org',
+    disableLink: true,
+    isHidden: true,
   },
   {
     title: 'Bring Saved Tab to Front',
