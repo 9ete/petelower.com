@@ -48,15 +48,62 @@ export const projects: Project[] = [
     repo: 'https://github.com/9ete/simple-like-dislike-plugin',
   },
   {
-    title: 'Available Upon Request',
+    title: 'VidStore / TN Marketing',
     category: 'Client Sites',
-    description: 'Please submit an inquiry via the contact form for details on client work.',
+    description: 'Senior Lead Front End Developer and Accessibility Lead on a large-scale Laravel ecommerce platform. Custom Gutenberg blocks, deep performance optimization, and SEO work across a high-traffic product catalog.',
+  },
+  {
+    title: 'FranklinCovey (via Jhana)',
+    category: 'Client Sites',
+    description: 'Development, support, and project management on a large-scale WordPress CMS used for blog and content operations. Custom translations pipeline, ongoing feature development, and day-to-day site management.',
+    url: 'https://www.franklincovey.com',
+  },
+  {
+    title: "Reese's Book Club",
+    category: 'Client Sites',
+    description: 'Full WordPress build for Reese Witherspoon\'s book club brand. Custom Gutenberg block development, performance optimization, and front-end implementation.',
+    url: 'https://reesesbookclub.com',
+  },
+  {
+    title: 'Hello Sunshine',
+    category: 'Client Sites',
+    description: 'Full WordPress build for Reese Witherspoon\'s media company. Custom Gutenberg development, performance optimization, and full front-end implementation.',
+    url: 'https://hello-sunshine.com',
+  },
+  {
+    title: 'MMDB Solutions',
+    category: 'Client Sites',
+    description: 'REST API development, custom Gutenberg blocks, and performance optimizations across multiple client projects managed through the MMDB agency.',
+    url: 'https://mmdbsolutions.com',
+  },
+  {
+    title: 'UrSource',
+    category: 'Client Sites',
+    description: 'Showcase-heavy WooCommerce ecommerce build with a strong focus on SEO, accessibility, performance, and custom Gutenberg blocks.',
+  },
+  {
+    title: 'IAFF Local 27 / Rhizome Network',
+    category: 'Client Sites',
+    description: 'Custom WordPress builds across the Rhizome multisite network, including the International Association of Fire Fighters Local 27 site. Multisite architecture, custom Gutenberg work, and theme development.',
+    url: 'https://iaff27.org',
   },
   {
     title: 'Bring Saved Tab to Front',
     category: 'Open Source',
     description: 'VS Code extension that automatically moves the most recently saved file to the first tab position, keeping your active file front and center.',
     repo: 'https://github.com/9ete/bring-saved-tab-to-front',
+  },
+  {
+    title: 'WooCommerce Storefront Theme',
+    category: 'Open Source',
+    description: 'Contributor to the official WooCommerce Storefront theme — the default theme shipped with WooCommerce installations worldwide.',
+    repo: 'https://github.com/woocommerce/storefront',
+  },
+  {
+    title: 'Newspack Theme',
+    category: 'Open Source',
+    description: 'Contributor to Automattic\'s Newspack theme, built for modern news publishers on WordPress.',
+    repo: 'https://github.com/Automattic/newspack-theme',
   },
   {
     title: 'petelower.com',
@@ -66,3 +113,4 @@ export const projects: Project[] = [
     repo: 'https://github.com/9ete/petelower.com',
   },
 ]
+
