@@ -19,6 +19,24 @@ export const bands: Band[] = [
     ],
   },
   {
+    name: 'Tuesday After Seven',
+    status: 'former',
+    description: 'Five piece West Seattle jam rock.',
+    url: '/',
+    youtubeIds: [
+      // TODO: add YouTube video IDs
+    ],
+  },
+  {
+    name: 'Slyck Willie',
+    status: 'former',
+    description: 'A short lived but much fun West Seattle rock band.',
+    url: '/',
+    youtubeIds: [
+      // TODO: add YouTube video IDs
+    ],
+  },
+  {
     name: 'Item 9 and the Mad Hatters',
     status: 'former',
     description: 'Iowa City\'s finest vintage rock n roll. We broke up but the recordings are still up on SoundCloud.',
@@ -26,6 +44,15 @@ export const bands: Band[] = [
     socials: [
       { label: 'SoundCloud', href: 'https://soundcloud.com/item9andthemadhatters' },
     ],
+    youtubeIds: [
+      // TODO: add YouTube video IDs
+    ],
+  },
+  {
+    name: 'Fail',
+    status: 'former',
+    description: 'Midwest punk rock.',
+    url: '/',
     youtubeIds: [
       // TODO: add YouTube video IDs
     ],
