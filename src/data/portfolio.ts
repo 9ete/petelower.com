@@ -50,6 +50,18 @@ export const projects: Project[] = [
     repo: 'https://github.com/9ete/simple-like-dislike-plugin',
   },
   {
+    title: 'Remote Media Source',
+    category: 'WordPress Plugins',
+    description: 'WordPress plugin that proxies media from a remote WordPress install on local, dev, and staging environments — no more syncing uploads folders.',
+    repo: 'https://github.com/9ete/remote-media-source',
+  },
+  {
+    title: 'WP Multisite Content Sharing',
+    category: 'WordPress Plugins',
+    description: 'WordPress plugin for sharing posts and content across sites in a Multisite network.',
+    repo: 'https://github.com/9ete/wp-multisite-content-sharing',
+  },
+  {
     title: 'Available Upon Request',
     category: 'Client Sites',
     description: 'Due to the nature of my work with clients, I\'m not able to publicly list all the projects I\'ve worked on. If you\'d like to know more about my experience and see examples of my work, please feel free to reach out via the contact form.',
@@ -100,6 +112,27 @@ export const projects: Project[] = [
     isHidden: true,
   },
   {
+    title: 'University of Iowa — First Year Experience',
+    category: 'Client Sites',
+    description: 'WordPress build for the University of Iowa\'s First Year Experience program site.',
+    url: 'https://fye.uiowa.edu',
+    isHidden: true,
+  },
+  {
+    title: 'European Motors Service Center',
+    category: 'Client Sites',
+    description: 'Custom WordPress theme and site build for an automotive service client.',
+    repo: 'https://github.com/9ete/twentytwelve-europeanmotorsservicecenter',
+    isHidden: true,
+  },
+  {
+    title: 'Brick Stone Masonry',
+    category: 'Client Sites',
+    description: 'Custom WordPress theme and site build for a masonry contractor.',
+    repo: 'https://github.com/9ete/twentytwelve-brickstonemasonryinc',
+    isHidden: true,
+  },
+  {
     title: 'IAFF Local 27',
     category: 'Client Sites',
     description: 'Custom WordPress builds across the Rhizome multisite network, including the International Association of Fire Fighters Local 27 site. Multisite architecture, custom Gutenberg work, and theme development.',
@@ -124,6 +157,18 @@ export const projects: Project[] = [
     category: 'Open Source',
     description: 'Contributor to Automattic\'s Newspack theme, built for modern news publishers on WordPress.',
     repo: 'https://github.com/Automattic/newspack-theme',
+  },
+  {
+    title: 'WooCommerce',
+    category: 'Open Source',
+    description: 'Contributor to WooCommerce, the open source ecommerce plugin powering a significant share of online stores worldwide.',
+    repo: 'https://github.com/woocommerce/woocommerce',
+  },
+  {
+    title: 'Gutenberg',
+    category: 'Open Source',
+    description: 'Contributor to the Gutenberg block editor project — the block editor for WordPress and beyond.',
+    repo: 'https://github.com/WordPress/gutenberg',
   },
   {
     title: 'petelower.com',
