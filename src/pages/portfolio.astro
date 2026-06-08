@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { projects, categoryOrder, type Project } from '../data/portfolio'
+
+const grouped = (() => {
+  const map = new Map<string, Project[]>(categoryOrder.map((c) => [c, []]))
+  const other: Project[] = []
+  for (const p of projects) {
+    if (map.has(p.category)) {
+      map.get(p.category)!.push(p)
+    } else {
+      other.push(p)
+    }
+  }
+  const result: { category: string; items: Project[] }[] = []
+  for (const c of categoryOrder) {
+    const items = map.get(c)!
+    if (items.length) result.push({ category: c, items })
+  }
+  if (other.length) result.push({ category: 'Other', items: other })
+  return result
+})()
+---
+
+<Base
+  title="Portfolio — Pete Lower"
+  description="WordPress plugins, Laravel applications, and client sites."
+>
+  <Header slot="header" />
+  <main class="portfolio">
+    <h1>Portfolio</h1>
+    <p class="intro">A mix of client work, open source plugins, and things I built because I wanted to.</p>
+
+    {grouped.map(({ category, items }) => (
+      <section class="category">
+        <h2>{category}</h2>
+        <ul class="cards">
+          {items.map((p) => (
+            <li class="card">
+              {p.thumbnail && <img src={p.thumbnail} alt={p.title} class="thumb" width="400" height="225" loading="lazy" />}
+              <h3>
+                {p.url
+                  ? <a href={p.url} target="_blank" rel="noopener">{p.title}</a>
+                  : p.title}
+              </h3>
+              <p>{p.description}</p>
+              {p.repo && (
+                <p class="links">
+                  <a href={p.repo} target="_blank" rel="noopener">Code</a>
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+  <Footer slot="footer" />
+</Base>
+
+<style>
+.portfolio {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 1rem;
+}
+.portfolio h1 {
+  margin-bottom: 0.5rem;
+}
+.intro {
+  margin: 0 0 2.5rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+.category {
+  margin-bottom: 2.5rem;
+}
+.category h2 {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+  opacity: 0.85;
+}
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.card {
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.08);
+}
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+.card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+.thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.links {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+</style>

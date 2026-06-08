@@ -1,0 +1,55 @@
+---
+import { getImage } from 'astro:assets'
+import skylineJpeg from '../assets/seattle_skyline.jpeg'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+  ogImage?: string
+}
+
+const { title, description, ogImage = '/seattle_skyline.jpeg' } = Astro.props
+
+const skyline = await getImage({ src: skylineJpeg, format: 'webp' })
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<html lang="en" style={`--bg-image: url('${skyline.src}')`}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN && (
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN}"}`}></script>
+    )}
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme')
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        const theme = stored ?? (prefersDark ? 'dark' : 'light')
+        document.documentElement.classList.toggle('dark', theme === 'dark')
+      })()
+    </script>
+  </head>
+  <body>
+    <slot name="header" />
+    <div id="page">
+      <slot />
+    </div>
+    <slot name="footer" />
+  </body>
+</html>

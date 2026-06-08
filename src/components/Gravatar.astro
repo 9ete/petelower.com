@@ -1,0 +1,32 @@
+---
+const hash = '74123bf8d459685cd0f02c1dd90c581d22258608efa9bc71e0a1356be57465db'
+const src = `https://www.gravatar.com/avatar/${hash}?s=200&d=identicon`
+---
+
+<div class="gravatar">
+  <img src={src} alt="Pete Lower" width="100" height="100" loading="eager" />
+</div>
+
+<style>
+.gravatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 0 10px black;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.gravatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (min-width: 640px) {
+  .gravatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+</style>

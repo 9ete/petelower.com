@@ -1,38 +1,46 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with code in this repository.
 
 ## Project
 
-Personal site at petelower.com — a Vue 3 + Vite SPA using `vue-router@4` (history mode). Despite the user's primary stack being WordPress/Laravel/PHP (see `~/.claude/CLAUDE.md`), this specific repo is plain Vue 3 with `<script setup>` SFCs and no backend.
+Personal site at petelower.com — Astro 5 + React static site. Pages are `.astro` components; only `ModeToggle.tsx` and `ContactForm.tsx` are React islands (`client:load`).
 
 ## Commands
 
-- `npm run dev` — start Vite dev server (port 5173)
+- `npm run dev` — Astro dev server at http://localhost:4321
 - `npm run build` — production build to `dist/`
-- `npm run preview` — preview the production build (port 4173)
+- `npm run preview` — preview the built output
 
-There is no test runner, linter, or formatter configured.
+No test runner, linter, or formatter configured.
 
 ## Architecture
 
-- Entry: `index.html` → `src/main.js` → installs router on `App` and mounts on `#app`.
-- `App.vue` composes `Header`, `<router-view />`, `Footer`. `Header` in turn composes `Gravatar`, `Navigation`, `ModeToggle`.
-- Routes live in `src/router/index.js`: `/` → `pages/Home.vue`, `/music` → `pages/Music.vue`, `/portfolio` → `pages/Portfolio.vue`. A wildcard catch-all redirects unknown paths to `home`.
-- `Navigation.vue` uses `<router-link>` for internal routes and plain `<a target="_blank" rel="noopener">` for external. Active route gets `.router-link-active` styling.
-- Portfolio data lives in `src/data/portfolio.js` as `{ categoryOrder, projects }`. The page groups by category, skipping empty categories. To add a project, append to `projects`; to add a category, also extend `categoryOrder`.
-- Theming is global, not prop-driven: `ModeToggle.vue` toggles a `dark` class on `<body>` and `src/style.css` selects on `body.dark` vs `body:not(.dark)`. Components that need dark/light variants use `<span class="light">` / `<span class="dark">` and let CSS hide the inactive one. Don't introduce a reactive theme store — the existing pattern is intentionally DOM-based.
-- Global styles live in `src/style.css` (CSS custom properties on `:root`, body-class theming, fade-in keyframes). Per-component styles use `<style scoped>`. Single mobile breakpoint at `min-width: 640px`. The HelloWorld/CoinSpinner files contain experimental/unused widgets — leave them unless asked.
-- Images: large assets live in both `src/assets/` (imported via CSS `url()`) and `public/` (served at root). The Seattle skyline background is loaded via CSS from `src/assets/`, so Vite fingerprints it into `dist/assets/`.
+- Layout: `src/layouts/Base.astro` — owns `<html>`, `<head>` (SEO, OG, canonical), dark-mode flash prevention inline script, and background image optimization via `getImage()`.
+- Pages: `src/pages/index.astro`, `music.astro`, `portfolio.astro`, `contact.astro` — all SSG.
+- Components: `Header.astro`, `Footer.astro`, `Navigation.astro`, `Gravatar.astro`, `YouTubeEmbed.astro` are zero-JS Astro components. `ModeToggle.tsx` and `ContactForm.tsx` are React islands.
+- Data: `src/data/music.ts` (bands array), `src/data/portfolio.ts` (projects array + categoryOrder). Add content here; pages render from data.
+- Styles: `src/styles/global.css` — CSS custom properties on `:root`, theming via `html.dark` / `html:not(.dark)`, imported in `Base.astro`.
 
-## Deployment quirks
+## Theming
 
-### `dist/` is committed
+`ModeToggle.tsx` toggles `dark` class on `document.documentElement` (`<html>`). Preference persisted to `localStorage`. Flash prevention: inline `<script is:inline>` in `Base.astro` runs before first paint. CSS selects on `html.dark` / `html:not(.dark)`.
 
-`dist/` is listed in `.gitignore` **but is also tracked in git** (commit 539ea74: "add dist as firebird is too out of date to install node/npm"). The production host ("firebird") can't run Node, so the built bundle ships in the repo.
+## Adding content
 
-This means: after any change to `src/`, `index.html`, or assets, **run `npm run build` and commit the resulting `dist/` changes** as a follow-up `chore: rebuild dist` commit (keeps source commits atomic). Pushing source changes without rebuilding `dist/` will not update production. Stage with `git add -f dist` because the directory is gitignored.
+**Portfolio project:** Add to `projects` array in `src/data/portfolio.ts`. Use existing `Category` type values or extend `categoryOrder` for a new category.
 
-### History-mode deep-links 404 on Firebird
+**YouTube video:** Add the video ID string to `youtubeIds` array in `src/data/music.ts` for the relevant band.
 
-`vue-router` is in history mode (`/music`, `/portfolio`). The current host (Firebird) does not rewrite unknown paths to `index.html`, so direct hits or refreshes on `/music` and `/portfolio` return 404. Client-side navigation from `/` works fine. The site is planned to migrate to DigitalOcean, where SPA fallback can be configured; after migration, drop the `dist/`-in-git workflow as well.
+## Deployment
+
+Cloudflare Pages — auto-deploys from git. No `dist/` committed to git.
+
+- `main` → production (petelower.com)
+- `develop` → preview URL
+
+Build command: `npm run build`. Output directory: `dist`. Set `VITE_WEB3FORMS_KEY` as an environment variable in Cloudflare Pages dashboard.
+
+## Contact form
+
+Uses Web3Forms. Set `VITE_WEB3FORMS_KEY` in `.env.local` locally and in Cloudflare Pages env vars for production. See README for setup steps.
