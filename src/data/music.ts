@@ -19,9 +19,10 @@ export const bands: Band[] = [
     ],
   },
   {
-    name: 'Item9 and the Mad Hatters',
+    name: 'Item 9 and the Mad Hatters',
     status: 'former',
-    description: 'A project from before Seattle. We broke up but the recordings are still up on SoundCloud.',
+    description: 'Iowa City\'s finest vintage rock n roll. We broke up but the recordings are still up on SoundCloud.',
+    url: 'https://i9mh.com',
     socials: [
       { label: 'SoundCloud', href: 'https://soundcloud.com/item9andthemadhatters' },
     ],

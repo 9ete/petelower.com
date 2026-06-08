@@ -48,10 +48,8 @@ export const projects: Project[] = [
     repo: 'https://github.com/9ete/simple-like-dislike-plugin',
   },
   {
-    title: 'University of Iowa — First Year Experience',
-    category: 'Client Sites',
-    description: 'WordPress site for the University of Iowa First Year Experience program.',
-    repo: 'https://github.com/9ete/fye.uiowa.edu',
+    title: 'Available Upon Request',
+    category: 'Client Sites'
   },
   {
     title: 'Bring Saved Tab to Front',
