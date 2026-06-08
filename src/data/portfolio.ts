@@ -49,7 +49,8 @@ export const projects: Project[] = [
   },
   {
     title: 'Available Upon Request',
-    category: 'Client Sites'
+    category: 'Client Sites',
+    description: 'Please submit an inquiry via the contact form for details on client work.',
   },
   {
     title: 'Bring Saved Tab to Front',
